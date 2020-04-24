@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.CompanyUserMapper">
+  <resultMap id="BaseResultMap" type="com.newsupplytech.projectapplication.modules.entity.CompanyUser">
+    <!--@mbg.generated-->
+    <!--@Table v_company_user-->
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="orgId" jdbcType="INTEGER" property="orgid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="companyId" jdbcType="INTEGER" property="companyid" />
+    <result column="companyName" jdbcType="VARCHAR" property="companyname" />
+    <result column="industryType" jdbcType="VARCHAR" property="industrytype" />
+    <result column="industryTypeId" jdbcType="INTEGER" property="industrytypeid" />
+    <result column="otherIndustryType" jdbcType="VARCHAR" property="otherindustrytype" />
+    <result column="registerType" jdbcType="VARCHAR" property="registertype" />
+    <result column="registerTypeId" jdbcType="INTEGER" property="registertypeid" />
+    <result column="registerDateTime" jdbcType="TIMESTAMP" property="registerdatetime" />
+    <result column="businessTypeId" jdbcType="VARCHAR" property="businesstypeid" />
+    <result column="street" jdbcType="VARCHAR" property="street" />
+    <result column="streetId" jdbcType="INTEGER" property="streetid" />
+    <result column="firstIndusType" jdbcType="VARCHAR" property="firstindustype" />
+    <result column="firstIndusTypeId" jdbcType="INTEGER" property="firstindustypeid" />
+    <result column="companyCode" jdbcType="VARCHAR" property="companycode" />
+  </resultMap>
+</mapper>

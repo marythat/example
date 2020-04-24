@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta base="/pt/pa/"/>
+    <title>上传模板</title>
+    <link rel="stylesheet" type="text/css" href="/pt/pa/datum.css" />
+
+</head>
+
+<body>
+<div class="main">
+    <p class="btn1" align="center">
+        <button class="btnInfo" onclick="upward()">上一页</button>
+        <select onchange="func()" id="pageTurning" class="mysel">
+        </select>
+        <button class="btnInfo" onclick="downward()">下一页</button>
+        <button type="button" onclick="downPdf()">导出PDF</button>
+        <a href="javascript:;" class="file" id="file">
+            <button class="btnInfo">上传附件</button>
+            <input type="file" name="" id="uploadFile" onchange="readLocalFile()">
+        </a>
+        <input type="text" id="numberInfo" value="0" style="display:none">
+    </p>
+    <form class="registerform">
+        <div id="exportToPdf" class="right-aside">
+            <div>
+                <h2 align="center">填写表单</h2>
+            </div>
+            <div class="contentTable show">
+                <table>
+                    <tr>
+                        <th colspan="2">简单介绍</th>
+                    </tr>
+                    <tr>
+                        <td width="70">姓名：</td>
+                        <td><input name="userName" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td height="62">年龄：</td>
+                        <td><input name="age" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td height="20" colspan="2">个人简历：</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height:80px">
+                            <textarea name="resume" cols="" rows=""></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>工作经验：</td>
+                        <td><input name="experience" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>单位：</td>
+                        <td><input name="unit" type="text"></td>
+                    </tr>
+                </table>
+                <!--    <div style="width: 100%;text-align: center"><span id="msgdemo2" style="color:red"></span></div>-->
+            </div>
+            <div class="contentTable">
+                <table>
+                    <tr>
+                        <th colspan="2">基础信息</th>
+                    </tr>
+                    <tr>
+                        <td width="70">职业：</td>
+                        <td><input name="vocation" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td height="20" colspan="2">个人性格及优势：</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height:80px">
+                            <textarea name="superiority" cols="" rows=""></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>任职工作经历：</td>
+                        <td><input name="undergo" type="text"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="contentTable">
+                <table>
+                    <tr>
+                        <th colspan="2">基本资料</th>
+                    </tr>
+                    <tr>
+                        <td height="62">兴趣、爱好：</td>
+                        <td><input name="hobby" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td height="20" colspan="2">个人性格及优势：</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="text-align:center;vertical-align:middle" id="btnView">
+            <button type="submit" id="submit" style="background-color: #219AFF" class="submitBut">提交</button>
+            <button type="submit" id="save" class="submitBut">保存</button>
+        </div>
+    </form>
+    <div id="fileTable"></div>
+</div>
+</body>
+<script src="/pt/pa/html2canvas.js"></script>
+<script src="/pt/pa/jspdf.debug.js"></script>
+<script src="/pt/pa/jquery-3.4.1.min.js"></script>
+<script src="/pt/pa/jquery-validate.min.js"></script>
+<script src="/pt/pa/messages_zh.js"></script>
+<script src="/pt/pa/datum.js"></script>
+
+<!--<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/jspdf/1.3.4/jspdf.debug.js"></script>-->
+<!--<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>-->
+<!--<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>-->
+<!--<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>-->
+<script>
+    $.validator.setDefaults({
+        submitHandler: function() {
+            if(clickButton){
+                butSubmit(clickButton)
+            }
+        }
+    });
+    $().ready(function() {
+        $(".registerform").validate({
+            rules: {
+                userName: {
+                    required: true,
+                    minlength: 2
+                },
+                age: {
+                    required: true,
+                    digits:true
+                },
+                resume: {
+                    required: true,
+                    minlength: 5,
+                }
+            },
+            messages: {
+                username: {
+                    required: "请输入用户名",
+                    minlength: "用户名必需由两个字母组成"
+                },
+                age: {
+                    required: "请输入年龄",
+                    minlength: "必须输入整数"
+                },
+                resume: {
+                    required: "请输入个人简介",
+                    minlength: "个人简介长度不能小于 5 个字母"
+                }
+            }
+        });
+        $("#submit").click(function() {
+            clickButton = "1"
+        });
+        $("#save").click(function() {
+            clickButton = "0"
+        });
+    });
+</script>
+</html>

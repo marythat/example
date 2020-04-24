@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.ApplicationRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.newsupplytech.projectapplication.modules.entity.ApplicationRecord">
+    </resultMap>
+
+    <select id="selectPage" resultType="com.newsupplytech.projectapplication.modules.entity.ApplicationRecord">
+        select * from (
+            select a.*, b.project_name,b.project_code,b.belong_dept,b.belong_dept_id,b.project_type,b.company_tag,b.ask_phone,b.necessary_upload
+            from nst_application_record a, nst_project_information b
+            where a.project_id = b.id
+        ) x
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="applyReportByMonth" resultType="map">
+        select DATE_FORMAT(nar.create_time,'%Y-%m') as item,count(nar.id) as `count` from nst_application_record nar
+        ${ew.customSqlSegment}
+        <if test="year != null and year != ''" >
+            and DATE_FORMAT(nar.create_time,'%Y') = #{year}
+        </if>
+        group by DATE_FORMAT(nar.create_time,'%Y-%m')
+        ORDER BY DATE_FORMAT(nar.create_time,'%Y-%m') asc
+    </select>
+    <select id="applyReportByStreet" resultType="map">
+        select nar.street as item,count(nar.id) as `count` from nst_application_record nar
+        ${ew.customSqlSegment}
+        <if test="street != null and street != ''" >
+            and nar.street = #{street}
+        </if>
+        group by nar.street_id,nar.street
+        ORDER BY nar.street_id asc
+    </select>
+    <select id="applyCompanyCount" resultType="int">
+        select count(1) from (select nar.company_id from nst_application_record nar
+        ${ew.customSqlSegment}
+        GROUP BY nar.company_id)x
+    </select>
+    <select id="count" resultType="int">
+        select count(1) from nst_application_record nar
+        ${ew.customSqlSegment}
+    </select>
+    <select id="selectDates" resultType="map">
+        select DATE_FORMAT(nar.create_time,'%Y') as createTime from nst_application_record nar
+        ${ew.customSqlSegment}
+        group by DATE_FORMAT(nar.create_time,'%Y')
+        order by DATE_FORMAT( nar.create_time, '%Y' ) desc
+    </select>
+
+    <select id="details" resultType="map">
+        select project_id as projectId,project_name as projectName,count(*) as count,
+		sum(case when x.status='DRAFT' then 1 else 0 end) AS 'draft',
+		sum(case when x.status='REJECTED' then 1 else 0 end) AS 'rejected',
+		sum(case when x.status='RETURN' then 1 else 0 end) AS 'return',
+		sum(case when x.status='APPROVAL' then 1 else 0 end) AS 'approval',
+		sum(case when x.status='PASSED' then 1 else 0 end) AS 'passed'
+from (
+            select a.*, b.project_name,b.project_code,b.belong_dept,b.project_type,b.company_tag
+            from nst_application_record a, nst_project_information b
+            where a.project_id = b.id
+        ) x
+        ${ew.customSqlSegment}
+        GROUP BY project_id
+    </select>
+    <select id="detailsOne" resultType="map">
+        select x.next_node_id as nextNodeId,count(x.next_node_id) as value from (
+            select a.*, b.project_name,b.project_code,b.belong_dept,b.project_type,b.company_tag
+		    from nst_application_record a, nst_project_information b
+		    where a.project_id = b.id and a.project_id=#{id}
+		)x
+		${ew.customSqlSegment}
+		GROUP BY next_node_id
+    </select>
+    <select id="selectById" resultType="com.newsupplytech.projectapplication.modules.entity.ApplicationRecord">
+            select * from (
+            select a.*, b.project_name,b.project_code,b.belong_dept,b.project_type,b.company_tag
+            from nst_application_record a, nst_project_information b
+            where a.project_id = b.id
+        ) x
+        where id=#{id}
+    </select>
+
+    <update id="deleteById">
+        update nst_application_record
+        set is_del='1'
+        where id=#{id}
+    </update>
+</mapper>

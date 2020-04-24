@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.ExpertUserMapper">
+  <resultMap id="BaseResultMap" type="com.newsupplytech.projectapplication.modules.entity.ExpertUser">
+    <!--@mbg.generated-->
+    <!--@Table v_expert_user-->
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="orgId" jdbcType="INTEGER" property="orgid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="expertId" jdbcType="INTEGER" property="expertid" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="certifyType" jdbcType="TINYINT" property="certifytype" />
+    <result column="certifyCode" jdbcType="VARCHAR" property="certifycode" />
+    <result column="diagnoseType" jdbcType="VARCHAR" property="diagnosetype" />
+  </resultMap>
+</mapper>

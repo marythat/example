@@ -1,0 +1,49 @@
+template{
+    display: block;
+}
+.subItem{
+    display: flex;
+    align-items: baseline;
+    /* width: 100%; */
+    padding: 5px 30px;
+    font-size: 15px;
+}
+.subItem .btBox{
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+}
+.tips{
+    color: #ff1234;
+}
+.tb_btn{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.tb_btn:hover{
+    filter: opacity(.8);
+    transition: .2s;
+}
+.tb_btn.primary-btn{
+    background-color: #008CBA;
+    color: #fff;
+}
+.tb_btn.danger-btn{
+    background-color: #ff415e;
+    color: #fff;
+}
+/* .jl_top >th{    
+    border: 1px solid #aaa;
+    padding: 8px;
+}
+.each_tr_jl >td{
+    border: 1px solid #aaa;
+    padding: 8px;
+} */
+.td_bk{
+    padding: 10px;
+    font-size: 14px;
+}

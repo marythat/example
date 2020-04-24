@@ -1,0 +1,101 @@
+
+sysconfig:
+  project-name: 项目申报系统
+  version: 0.1 snapshots
+  desc: 项目申报系统
+  contact:
+    name: NST项目申报开发小组
+    url: www.newsupplytech.com
+    email: service@newsupplytech.com
+  file-store:
+    disk:
+      base-path: D:/temp/project-application/
+  sms-send:
+    open: 1
+
+server:
+  port: 8071
+  servlet:
+    context-path: /pt/pa
+
+mybatis:
+  table:
+    auto: update
+  model:
+    pack: com.newsupplytech.projectapplication.modules.entity
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/nst_project_application?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    druid:
+      db1:
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/nst_project_application?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=UTC
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+      db2:
+        username: xgjview
+        password: xgjviewpw
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://121.10.7.96:13306/epsp?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=UTC
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+  resources:
+    static-locations: classpath:/frontend/,classpath:/static/,classpath:/templates/
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 32MB
+
+mybatis-plus:
+  config-location: classpath:com/newsupplytech/projectapplication/modules/mapper/xml/mybatis-config.xml
+  mapper-locations: classpath:com/newsupplytech/projectapplication/modules/**/xml/*Mapper.xml
+  global-config:
+    # 关闭MP3.0自带的banner
+    banner: false
+    db-config:
+      #主键类型
+      id-type: AUTO
+      # 默认数据库表下划线命名
+      table-underline: true
+  configuration:
+    #这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    com.newsupplytech.projectapplication.modules.mapper: DEBUG
+#logging:
+#  level:
+#    org:
+#      springframework: INFO
+#    com:
+#      ibatis: DEBUG
+#    com.newsupplytech.projectapplication.modules.mapper: info
+
+nst :
+  #查询企业基础信息
+  url : https://im.dg.gov.cn/pt/process/api/gscompany
+  #ftp服务器地址
+  ftpserver : 192.168.1.18
+  #ftp服务器用户名
+  ftpuser : ljh
+  #ftp服务器密码
+  ftppwd : 123456
+  #ftp服务器端口
+  ftpport : 21
+  #ftp上的文件目录
+  ftpgetdir : /
+#定时任务触发时间
+timingTask:
+  time: 0 0 0 * * ? #项目状态更新任务
+  smsNotificationTime: 0 0 0 * * ? #政府端短信通知任务

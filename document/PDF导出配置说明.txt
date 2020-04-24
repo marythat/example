@@ -1,0 +1,17 @@
+pdf导出配置
+
+jacob.jar1.19及使用方法
+解压后获得3个文件
+
+jacob.jar
+jacob-1.17-x64.dll
+jacob-1.17-x86.dll
+
+jacob.jar 放到项目的lib目录
+
+jacob-1.17-x64.dll 放到C:\Windows\System32
+
+jacob-1.17-x86.dll 放到C:\Windows\SysWOW64
+
+
+还可以把jacob-1.17-x86.dll 放到jdk/jre/bin下，我选的这个（推荐）

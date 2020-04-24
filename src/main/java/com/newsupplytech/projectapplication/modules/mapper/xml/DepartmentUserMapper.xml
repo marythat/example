@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.DepartmentUserMapper">
+  <resultMap id="BaseResultMap" type="com.newsupplytech.projectapplication.modules.entity.DepartmentUser">
+    <!--@mbg.generated-->
+    <!--@Table v_dpt_user-->
+    <result column="userId" jdbcType="BIGINT" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="orgId" jdbcType="BIGINT" property="orgid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="dptName" jdbcType="VARCHAR" property="dptname" />
+    <result column="dptId" jdbcType="INTEGER" property="dptid" />
+  </resultMap>
+</mapper>

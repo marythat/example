@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.DepartmentMapper">
+  <resultMap id="BaseResultMap" type="com.newsupplytech.projectapplication.modules.entity.Department">
+    <!--@mbg.generated-->
+    <!--@Table v_dpt-->
+    <result column="dptId" jdbcType="BIGINT" property="dptid" />
+    <result column="dptName" jdbcType="VARCHAR" property="dptname" />
+    <result column="parentDptId" jdbcType="BIGINT" property="parentdptid" />
+  </resultMap>
+</mapper>

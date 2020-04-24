@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.ProjectInformationMapper">
+
+    <sql id="base_column">
+        id,
+        project_name,
+        project_code,
+        belong_dept,
+        belong_dept_id,
+        ask_phone,
+        apply_start_time,
+        apply_end_time,
+        apply_conditions,
+        project_data_item,
+        apply_form_url,
+        project_status,
+        company_tag,
+        audit_template,
+        create_time,
+        update_time,
+        htmlId,
+        project_type,
+        company_code,
+        mobile
+    </sql>
+    <sql id="query">
+        <if test="data.projectName!=null and data.projectName!=''">
+            and project_name=#{data.projectName}
+        </if>
+        <if test="data.projectCode!=null and data.projectCode!=''">
+            and project_Code=#{data.projectCode}
+        </if>
+    </sql>
+<!--    <select id="queryList" parameterType="Page" resultType="ProjectInformation">-->
+<!--        select-->
+<!--        <include refid="base_column"/>-->
+<!--        from nst_project_information-->
+<!--        where 1=1-->
+<!--        <include refid="query"/>-->
+<!--        limit #{limitStart},#{pageSize}-->
+<!--    </select>-->
+<!--    <select id="queryListCount" parameterType="Page" resultType="java.lang.Integer">-->
+<!--        select-->
+<!--        count(*)-->
+<!--        from nst_project_information-->
+<!--        where 1=1-->
+<!--        <include refid="query"/>-->
+<!--    </select>-->
+
+    <update id="deleteById">
+        update nst_project_information
+        set is_del='1'
+        where id=#{id}
+    </update>
+
+    <select id="selectPage" resultType="com.newsupplytech.projectapplication.modules.entity.ProjectInformation">
+        select npi.*
+        <if test="companyId != null" >
+            ,ncp.id as ncpId,ncp.permission_keys as permissionKeys
+        </if>
+        from nst_project_information npi
+        <if test="companyId != null" >
+            left join nst_company_permission ncp on ncp.company_id = #{companyId} and ncp.project_id = npi.id
+        </if>
+        ${ew.customSqlSegment}
+    </select>
+    <select id="countByPer" resultType="int">
+        select count(1) from nst_project_information npi
+        WHERE
+            (
+                EXISTS (
+                        SELECT
+                            1
+                        FROM
+                            nst_application_record nar
+                            ${ew.customSqlSegment}
+                            and npi.id = nar.project_id
+                )
+            )
+    </select>
+</mapper>

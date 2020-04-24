@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.GuildUserMapper">
+  <resultMap id="BaseResultMap" type="com.newsupplytech.projectapplication.modules.entity.GuildUser">
+    <!--@mbg.generated-->
+    <!--@Table v_guild_user-->
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="orgId" jdbcType="INTEGER" property="orgid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="guildId" jdbcType="INTEGER" property="guildid" />
+    <result column="guildName" jdbcType="VARCHAR" property="guildname" />
+    <result column="guildCode" jdbcType="VARCHAR" property="guildcode" />
+  </resultMap>
+</mapper>

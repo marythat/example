@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta base="/pt/pa/"/>
+	<title>金融机构进驻“企莞家”金融超市申请</title>
+	<link rel="stylesheet" type="text/css" href="/pt/pa/datum.css" />
+	<link rel="stylesheet" type="text/css" href="/pt/pa/004/pa004.css" />
+	<link rel="stylesheet" type="text/css" href="/pt/pa/datePicker.min.css"/>
+</head>
+
+<body>
+<div class="main">
+	<p class="btn1" align="center">
+		<button class="button button2" onclick="upward()">上一页</button>
+		<select onchange="func()" id="pageTurning" class="mysel selWidth">
+		</select>
+		<button class="button button2" onclick="downward()">下一页</button>
+		<button class="button button2" onclick="dowlondPDFBeforeHandle()">导出PDF</button>
+		<a href="javascript:;" class="file" id="file">
+			<button class="button button2" onclick="beforeUpload()">上传附件</button>
+			<input type="file" name="" id="uploadFile" onchange="readLocalFile()" style="display:none">
+			<input type="file" name="" id="MustUploadFile" onchange="readLocalFile(1)" style="display:none">
+		</a>
+		<input type="text" id="numberInfo" value="0" style="display:none">
+	</p>
+	<form class="registerform" onsubmit="return false">
+		<div>
+			<div>
+				<h2 align="center">金融机构进驻“企莞家”金融超市申请</h2>
+			</div>
+			<div id="exportToPdf" class="right-aside">
+				<div class="contentTable contentTable1">
+					<table>
+						<tr style="display: none;">
+							<th class="thCol" colspan="8">金融机构进驻“企莞家”金融超市申请表</th> <!--select 的下拉内容-->
+						</tr>
+						<tr>
+							<th colspan="8" class="thCol">金融机构进驻“企莞家”金融超市申请表</th>
+						</tr>
+						<tr class="th_bt">
+							<th class="thCol" colspan="8">一、基本情况</th>
+						</tr>
+						<tr class="th_bt">
+							<td class="td1" style="width: 200px;" >1.申请机构名称</th>
+							<td class="td1" colspan="7"><input class="input1" name="QYMC" id="QYMC" type="text"></td>
+						</tr>
+						<tr class="th_bt">
+							<td class="td1" >2.详细地址</th>
+							<td class="td1" colspan="7"><input class="input1" name="ZS" id="ZS" type="text"></td>
+                        </tr>
+						<tr>
+							<td class="td1" class="taWidth">统一社会信用代码</td>
+							<td class="td1" colspan="8"><input class="input1" name="DGS_TYSHXYDM" type="text"></td>
+                        </tr>
+                        <tr class="th_bt" >
+                            <th class="thCol" colspan="8" style="font-weight: normal;padding-left: 50px;">主营业务</th>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1" colspan="8">
+                                <textarea name="ZYYW" id="ZYYW" style="min-height: 50px;height: 50px;" onkeyup="this.value = this.value.slice(0, 200)"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">4.经营情况（万元）</td>
+                            <td class="td1" colspan="3"><input class="input1" name="SBSLND" type="text" style="width: 88px;">年（申报上两年度）</td>
+                            <td class="td1" colspan="4"><input class="input1" name="SBSYND" type="text"  style="width: 140px;">年（申报上一年度）</td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">①总资产</td>
+                            <td class="td1" colspan="3"><input class="input1" name="ZZC_1" type="text"></td>
+                            <td class="td1" colspan="4"><input class="input1" name="ZZC_2" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">②主营业务收入</td>
+                            <td class="td1" colspan="3"><input class="input1" name="ZYYWSR_1" type="text"></td>
+                            <td class="td1" colspan="4"><input class="input1" name="ZYYWSR_2" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">③净利润</td>
+                            <td class="td1" colspan="3"><input class="input1" name="JLR_1" type="text"></td>
+                            <td class="td1" colspan="4"><input class="input1" name="JLR_2" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">④缴纳税金</td>
+                            <td class="td1" colspan="3"><input class="input1" name="JNSJ_1" type="text"></td>
+                            <td class="td1" colspan="4"><input class="input1" name="JNSJ_2" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">5.法定代表人姓名</td>
+                            <td class="td1" colspan="3"><input class="input1" name="FDDBR" type="text"></td>
+                            <td class="td1" class="taWidth">微信</td>
+                            <td class="td1" colspan="3"><input class="input1" name="FDDBR_WX" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">固定电话</td>
+                            <td class="td1" colspan="2"><input class="input1" name="FDDNR_DH" type="text"></td>
+                            <td class="td1" class="taWidth">邮箱</td>
+                            <td class="td1" colspan="2"><input class="input1" name="FDDBR_YX" type="text"></td>
+                            <td class="td1" class="taWidth">手机</td>
+                            <td class="td1" colspan="2"><input class="input1" name="FDDBR_SJ" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">联系人1姓名</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_1_XM" type="text"></td>
+                            <td class="td1" class="taWidth">职务</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_1_ZW" type="text"></td>
+                            <td class="td1" class="taWidth">邮箱</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_1_YX" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">固定电话</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_1_DH" type="text"></td>
+                            <td class="td1" class="taWidth">手机</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_1_SJ" type="text"></td>
+                            <td class="td1" class="taWidth">微信</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_1_WX" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">联系人2姓名</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_2_XM" type="text"></td>
+                            <td class="td1" class="taWidth">职务</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_2_ZW" type="text"></td>
+                            <td class="td1" class="taWidth">邮箱</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_2_YX" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" class="taWidth">固定电话</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_2_DH" type="text"></td>
+                            <td class="td1" class="taWidth">手机</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_2_SJ" type="text"></td>
+                            <td class="td1" class="taWidth">微信</td>
+                            <td class="td1" colspan="2"><input class="input1" name="LXR_2_WX" type="text"></td>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1">业务咨询电话（用于公布）</th>
+                            <td class="td1" colspan="7"><input class="input1" name="YWZXDH" id="YWZXDH" type="text"></td>
+                        </tr>
+                        <tr class="th_bt">
+                            <th class="thCol" colspan="8">二、机构建设情况</th>
+                        </tr>
+                        <tr class="th_bt">
+                            <th class="thCol" colspan="8" style="font-weight: normal;">机构整体情况及业务开展情况</th>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1" colspan="8">
+                                <textarea name="JGZTQKJYWKZQK" id="JGZTQKJYWKZQK" style="min-height: 100px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr class="th_bt">
+                            <th class="thCol" colspan="8" style="font-weight: normal;">专业服务领域</th>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1" colspan="8">
+                                <textarea name="ZYFWLY" id="ZYFWLY" style="min-height: 100px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr class="th_bt">
+                            <th class="thCol" colspan="8" style="font-weight: normal;">机构特点专长</th>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1" colspan="8">
+                                <textarea name="JGTDZC" id="JGTDZC" style="min-height: 100px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr class="th_bt">
+                            <th class="thCol" colspan="8" style="font-weight: normal;">员工及技术团队情况</th>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1" colspan="8">
+                                <textarea name="YGJJSTDQK" id="YGJJSTDQK" style="min-height: 100px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr class="th_bt">
+                            <th class="thCol" colspan="8">三、申报资料真实性声明</th>
+                        </tr>
+                        <tr>
+                            <td class="td1" colspan="8">
+                                <div style="padding: 10px;text-align: left;">
+                                        本单位声明，本单位所提交的所有申报资料是真实、完整、有效的，如存在提供虚假资料或凭证行为，无论申报最终是否获得通过，由此产生的法律责任及其他所有后果，本单位都将全部承担。
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td1" colspan="8">
+                                <div style="padding: 10px;text-align: left;">上传附件：1.营业执照或机构登记证书；2.资质证书、荣誉证书等；3.其他资料。</div></td>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1">企业促进科初审：</th>
+                            <td class="td1" colspan="8">
+                                <textarea style="min-height: 100px;" readonly></textarea>
+                            </td>
+                        </tr>
+                        <tr class="th_bt">
+                            <td class="td1">分管领导审核：</th>
+                            <td class="td1" colspan="8">
+                                <textarea style="min-height: 100px;" readonly></textarea>
+                            </td>
+                        </tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div style="text-align:center;vertical-align:middle" id="btnView">
+			<button type="submit" id="submit" style="background-color: #219AFF" class="submitBut button button2">提交</button>
+			<button type="submit" id="save" class="submitBut button button2">保存</button>
+		</div>
+	</form>
+	<div id="fileTable"></div>
+</div>
+</body>
+<script src="/pt/pa/html2canvas.js"></script>
+<script src="/pt/pa/jspdf.debug.js"></script>
+<script src="/pt/pa/jquery-3.4.1.min.js"></script>
+<script src="/pt/pa/jquery-validate.min.js"></script>
+<script src="/pt/pa/messages_zh.js"></script>
+<!-- <script src="/pt/pa/datum.js"></script> -->
+<script src="/pt/pa/004/global.js"></script>
+<script src="/pt/pa/datePicker.min.js"></script>
+<!-- 东莞市鼓励和支持“倍增计划”企业兼并重组资金申请表  需要用到的js -->
+<!-- <script src="/pt/pa/东莞市鼓励和支持“倍增计划”企业兼并重组资金申请表.js"></script> -->
+<!-- <script src="/pt/pa/003/pa003.js"></script> -->
+<script src="/pt/pa/004/global-function.js"></script>
+<script src="/pt/pa/004/pa004.js"></script>
+
+
+<script>
+    //当前页面table的className
+    let currentTable = 'contentTable1';
+    ////非当前页面table的className
+    let otherTable = 'contentTable';
+    //表单验证回调
+    $.validator.setDefaults({
+        submitHandler: function() {
+            if(clickButton && clickButton=="1"){
+                butSubmit(clickButton)
+            }
+        },
+        invalidHandler: function(form, validator) {  //不通过回调
+            error(validator.errorList[0].element.name)
+        }
+    });
+
+    $(".registerform").validate({
+        rules: {
+            QYMC: {
+                required: true,
+            },
+            ZYYW: {
+                maxlength: 100,
+            },
+            JGZTQKJYWKZQK: {
+                maxlength: 500,
+            },
+            ZYFWLY: {
+                maxlength: 500,
+            },
+            JGTDZC: {
+                maxlength: 500,
+            },
+            YGJJSTDQK: {
+                maxlength: 500,
+            },
+        },
+        messages: {
+            QYMC: {
+                required: "必填",
+            },
+            ZYYW: {
+                maxlength: '最大100字数',
+            },
+            JGZTQKJYWKZQK: {
+                maxlength: '最大500字数',
+            },
+            ZYFWLY: {
+                maxlength: '最大500字数',
+            },
+            JGTDZC: {
+                maxlength: '最大500字数',
+            },
+            YGJJSTDQK: {
+                maxlength: '最大500字数',
+            },
+        }
+    });
+
+    $().ready(function() {
+        $("#submit").click(function() {
+            clickButton = "1"
+        });
+        $("#save").click(function() {
+            clickButton = "0"
+            butSubmit(0);
+        });
+    });
+    //确定要打印pdf的范围及pdf命名
+    function comfirmPdf() {
+        target = document.getElementsByClassName("right-aside")[0];
+        target.style.background = "#FFFFFF";
+        pdfHeight = $(".right-aside").eq(0).height()
+        $("."+currentTable).attr("style","display: block;position: relative;opacity: 1;top: auto;left: auto;width: 98%;")
+        $("."+otherTable).attr("style","display: block;margin: 10px auto;position: relative;opacity: 1;top: auto;left: auto;width: 98%;")
+        $(".right-aside").eq(0).css("height",document.getElementsByClassName('right-aside')[0].scrollHeight+20)
+        text = $("#QYMC").val();
+    }
+    //还原pdf打印时样式修改
+    function restore() {
+        $("."+otherTable).attr("style","margin: 10px auto;position: absolute;opacity: 0;top: -9999px;left: -9999px;width: 98%;")
+        $("."+currentTable).attr("style","position: absolute;opacity: 1;top: auto;left: auto;width: 98%;")
+        $(".right-aside").eq(0).css("height",pdfHeight)
+    }
+    function changeRules(val,key) {
+        let items = $(".registerform").find(key)
+        if(val){
+            for(let i = 0; i < items.length; i++) {
+                items.eq(i).rules("add", {required: true, messages: {required: "必填"}});
+            }
+        }else{
+            for(let i = 0; i < items.length; i++) {
+                items.eq(i).rules("remove");
+            }
+        }
+    }
+
+    //动态属性赋值
+    function dynamicTableJson(){
+        return null;
+    }
+</script>
+</html>

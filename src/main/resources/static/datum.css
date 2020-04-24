@@ -1,0 +1,204 @@
+body{
+    overflow-x: visible;
+}
+
+table {
+    border-collapse: collapse;
+    border: solid 1px #ccc;
+    width: 100%;
+    min-width: 600px;
+}
+
+.td1 {
+    border: solid 1px #090909;
+    font-size: 15px;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.input1 {
+    font-size: 12px;
+    width: calc(100% - 35px);
+    float: left;
+    height: 45%;
+    border: none;
+    outline: medium;
+}
+
+.input2 {
+    font-size: 12px;
+    width: 25px;
+    height: 15px;
+    border: none;
+    outline: medium;
+}
+
+/*需要带必填校验的数据填写框格式*/
+.input3 {
+    font-size: 12px;
+    width: calc(100% - 35px);
+    float: left;
+    height: 85%;
+    border: none;
+    outline: medium;
+}
+
+textarea.error{
+    width: calc(100% - 120px)
+}
+
+textarea {
+    width: 99%;
+    float: left;
+    height: 200px;
+    border: none;
+    outline: medium;
+}
+
+.main {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.submitBut {
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.over {
+    background-color: #f60;
+    color: #fff;
+    border: none;
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.btn {
+    margin: 20px 120px;
+    width: 80px;
+}
+
+.contentTable {
+    margin: 10px auto;
+    /*display: none;*/
+    position: absolute;
+    opacity: 0;
+    top: -9999px;
+    left: -9999px;
+    width: 98%;
+}
+
+.btn.active {
+    background-color: pink;
+}
+
+.contentTable1 {
+    /*display: block;*/
+    position: absolute;
+    opacity: 1;
+    top: auto;
+    left: auto;
+    width: 98%;
+}
+
+label.error{
+    color: red;
+    float: right;
+}
+
+.file {
+    position: relative;
+}
+
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    width: 70px;
+}
+.file:hover {
+    text-decoration: none;
+}
+
+.taWidth{
+    width:100px;
+}
+.thCol{
+    border: solid 1px #090909;
+    height: 45px;
+}
+
+
+.td2{
+    border: solid 1px #090909;
+    font-size: 15px;
+    height: 45px;
+    padding-left: 10px;
+}
+.th_bt{
+    text-align:left;
+}
+.coljy{
+    border: solid 1px #090909;
+    font-size: 15px;
+    height: 45px;
+    padding-left: 10px;
+    text-align: center;
+    color:red;
+}
+
+.button {
+    background-color:#008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.selWidth{
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.textCol{
+    font-size: 15px;
+    height: 45px;
+    padding-left: 10px;
+    text-align: center;
+    color:red;
+    text-decoration:underline
+}
+
+.inputSolid{
+    border: solid 1px #090909
+}
+
+.tb_btn.primary-btn{
+    background-color: #008CBA;
+    color: #fff;
+    padding: 8px 10px;
+}
+.tb_btn.danger-btn{
+    background-color: #ff415e;
+    color: #fff;
+    padding: 8px 10px;
+}

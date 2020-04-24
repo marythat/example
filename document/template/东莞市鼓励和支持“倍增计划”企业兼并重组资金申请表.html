@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta base="/pt/pa/"/>
+	<title>2020年东莞市鼓励和支持“倍增计划”企业兼并重组资金</title>
+	<link rel="stylesheet" type="text/css" href="/pt/pa/datum.css" />
+	<link rel="stylesheet" type="text/css" href="/pt/pa/002/pa002.css" />
+	<link rel="stylesheet" type="text/css" href="/pt/pa/datePicker.min.css"/>
+</head>
+
+
+<body>
+<div class="main">
+	<p class="btn1" align="center">
+		<button class="button button2" onclick="upward()">上一页</button>
+		<select onchange="func()" id="pageTurning" class="mysel selWidth">
+		</select>
+		<button class="button button2" onclick="downward()">下一页</button>
+		<!--<button class="button button2" onclick="dowlondPDFBeforeHandle()">导出PDF</button>-->
+		<button class="button button2" onclick="templetFtlPdf('project-enterprises-reorganization')">导出PDF</button>
+		<a href="javascript:;" class="file" id="file">
+			<button class="button button2" onclick="beforeUpload()">上传附件</button>
+			<input type="file" name="" id="uploadFile" onchange="readLocalFile()" style="display:none">
+		</a>
+		<input type="text" id="numberInfo" value="0" style="display:none">
+	</p>
+	<form class="registerform">
+		<div>
+			<div>
+				<h2 align="center">2020年东莞市鼓励和支持“倍增计划”企业兼并重组资金</h2>
+			</div>
+			<div id="exportToPdf" class="right-aside">
+				<div class="contentTable contentTable1">
+					<table>
+						<tr style="display: none;">
+							<th class="thCol" colspan="6">一、企业基本情况</th> <!--select 的下拉内容-->
+						</tr>
+						<tr>
+							<th colspan="6" class="thCol">专项资金申报系统企业信息标准化表格</th>
+						</tr>
+						<tr class="th_bt">
+							<th class="thCol" colspan="6">一、企业基本情况</th>
+						</tr>
+						<tr class="th_bt">
+							<td class="td1" >企业名称</th>
+							<td class="td1" colspan="5"><input class="input1" name="QYMC" id="QYMC" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth">统一社会信用代码</td>
+							<td class="td1" colspan="2"><input class="input1" name="DGS_TYSHXYDM" type="text"></td>
+							<td class="td1" class="taWidth">登记注册类型</td>
+							<td class="td1" colspan="2"><input class="input1" name="QYLX" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth" >注册资本</td>
+							<td class="td1"><input class="input1" name="ZCZB2" type="text"></td>
+							<td class="td1" class="taWidth">资本币种</td>
+							<td class="td1"><input class="input1" name="DGS_TZZEBZ" value="人民币"  type="text"></td>
+							<td class="td1" class="taWidth">成立日期</td>
+							<td class="td1"><div class="datePicker" id="CLRQ"></div><!--<input class="input1" name="CLRQ" type="text">--></td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth">所属镇街(园区)</td>
+							<td class="td1" colspan="2"><input class="input1" name="street" type="text"></td>
+							<td class="td1" class="taWidth">营业执照地址</td>
+							<td class="td1" colspan="2"><input class="input1" name="ZS" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth">银行开户名</td>
+							<td class="td1" colspan="5"><input class="input1" name="YHKHM" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth">开户银行名称</td>
+							<td class="td1" colspan="2"><input class="input1" name="KHYHMC" type="text"></td>
+							<td class="td1" class="taWidth">开户银行账号</td>
+							<td class="td1" colspan="2"><input class="input1" name="KHYHZH" type="text"></td>
+						</tr>
+						<!--未合并表格-->
+						<tr>
+							<td class="td1">法定代表人</td>
+							<td class="td1" ><input class="input1" name="FDDBR" type="text"></td>
+							<td class="td1" >手机</td>
+							<td class="td1"><input class="input1" name="LXDH" type="text"></td>
+							<td class="td1">电子邮箱</td>
+							<td class="td1" ><input class="input1" name="fddbrEmail" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">董事长</td>
+							<td class="td1"><input class="input1" name="leaderPerson" type="text"></td>
+							<td class="td1" >手机</td>
+							<td class="td1"><input class="input1" name="leaderPhone" type="text"></td>
+							<td class="td1">电子邮箱</td>
+							<td class="td1" ><input class="input1" name="leaderEmail" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">总经理</td>
+							<td class="td1" ><input class="input1" name="managePerson" type="text"></td>
+							<td class="td1" >手机</td>
+							<td class="td1"><input class="input1" name="managePhone" type="text"></td>
+							<td class="td1">电子邮箱</td>
+							<td class="td1" ><input class="input1" name="manageEmail" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">财务负责人</td>
+							<td class="td1" ><input class="input1" name="CWFZR" type="text"></td>
+							<td class="td1" >手机</td>
+							<td class="td1"><input class="input1" name="LXDH4" type="text"></td>
+							<td class="td1">电子邮箱</td>
+							<td class="td1" ><input class="input1" name="cwfzrEmail" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">行政部(办公室)负责人</td>
+							<td class="td1" ><input class="input1" name="XZBFZR" type="text"></td>
+							<td class="td1" >手机</td>
+							<td class="td1"><input class="input1" name="LXDH5" type="text"></td>
+							<td class="td1">电子邮箱</td>
+							<td class="td1" ><input class="input1" name="xzbfzrEmail" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">申报联系人</td>
+							<td class="td1" ><input class="input1" name="userName" type="text"></td>
+							<td class="td1" >手机</td>
+							<td class="td1"><input class="input1" name="mobile" type="text"></td>
+							<td class="td1">电子邮箱</td>
+							<td class="td1" ><input class="input1" name="email" type="text"></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="contentTable">
+					<table>
+						<tr class="th_bt">
+							<th class="thCol" colspan="6">二、经营内容</th>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth">所属行业</td>
+							<td class="td1" colspan="2"><input class="input1" name="industrType" type="text"></td>
+							<td class="td1" class="taWidth">企业从业平均人数总人数(人)</td>
+							<td class="td1" colspan="2"><input class="input1" name="QYZRS" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1" width="20%">企业用地面积(平方米)</td>
+							<td class="td1" width="15%"><input class="input1" name="JYCSMJ" type="text"></td>
+							<td class="td1" width="15%" class="taWidth">企业建筑面积(平方米)</td>
+							<td class="td1" width="15%"><input class="input1" name="QYJZMJ" type="text"></td>
+							<td class="td1" width="15%">用地情况</td>
+							<td class="td1" width="15%">
+								<label><input type="checkbox" name="YDQK" id="YDQK" value="1"  onClick="CheckThe(this,'YDQK')">自有 </label>
+								<label><input type="checkbox" name="YDQK" id="YDQK" value="2"  onClick="CheckThe(this,'YDQK')">租有 </label>
+							</td>
+						</tr>
+						<tr>
+							<td class="td1" rowspan="5" class="taWidth">主要产品或服务(前三大产品或服务)</td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth">名称</td>
+							<td class="td1" colspan="3">上一年度产量或服务数量（请列明数据单位）</td>
+							<td class="td1">主要市场       （国内、国外）</td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth"><input class="input1" name="XMMC1" type="text"></td>
+							<td class="td1" colspan="3"><input class="input1" name="YBJYXM1" type="text"></td>
+							<td class="td1"><input class="input1" name="ZYSC1" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth"><input class="input1" name="XMMC2" type="text"></td>
+							<td class="td1" colspan="3"><input class="input1" name="YBJYXM2" type="text"></td>
+							<td class="td1"><input class="input1" name="ZYSC2" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1" class="taWidth"><input class="input1" name="XMMC3" type="text"></td>
+							<td class="td1" colspan="3"><input class="input1" name="YBJYXM3" type="text"></td>
+							<td class="td1"><input class="input1" name="ZYSC3" type="text"></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="contentTable">
+					<table>
+						<tr class="th_bt">
+							<th class="thCol" colspan="6">三、经营情况(万元，精确到小数点后面2位数)</th>
+						</tr>
+						<tr>
+							<th class="thCol" colspan="6">前三年发展情况</th>
+						</tr>
+						<tr>
+							<th class="thCol">财务指标</th>
+							<th class="thCol">2017年度</th>
+							<th class="thCol">2018年度</th>
+							<th class="thCol">2019年度</th>
+							<th class="thCol">2020年度(预计)</th>
+							<th class="thCol">备注</th>
+						</tr>
+						<tr>
+							<td class="td1">资产总额(万元)</td>
+							<td class="td1" ><input class="input1 ZZC" name="ZZC1" type="text"></td>
+							<td class="td1" ><input class="input1 ZZC" name="ZZC2" type="text"></td>
+							<td class="td1"><input class="input1 ZZC" name="ZZC3" type="text"></td>
+							<td class="td1"><input class="input1 ZZC" name="ZZC4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">负债总额(万元)</td>
+							<td class="td1" ><input class="input1 FZZE" name="FZZE1" type="text"></td>
+							<td class="td1" ><input class="input1 FZZE" name="FZZE2" type="text"></td>
+							<td class="td1"><input class="input1 FZZE" name="FZZE3" type="text"></td>
+							<td class="td1"><input class="input1 FZZE" name="FZZE4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark1" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">所有者权益(万元)</td>
+							<td class="td1" ><input class="input1 SYZQY" name="SYZQY1" type="text"></td>
+							<td class="td1" ><input class="input1 SYZQY" name="SYZQY2" type="text"></td>
+							<td class="td1"><input class="input1 SYZQY" name="SYZQY3" type="text"></td>
+							<td class="td1"><input class="input1 SYZQY" name="SYZQY4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark2" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">主营业务收入（万元）</td>
+							<td class="td1" ><input class="input1 ZYYWSR" name="ZYYWSR1" type="text"></td>
+							<td class="td1" ><input class="input1 ZYYWSR" name="ZYYWSR2" type="text"></td>
+							<td class="td1"><input class="input1 ZYYWSR" name="ZYYWSR3" type="text"></td>
+							<td class="td1"><input class="input1 ZYYWSR" name="ZYYWSR4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark3" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">工业总产值（万元）</td>
+							<td class="td1" ><input class="input1 GYZCZ" name="GYZCZ1" type="text" onblur=""></td>
+							<td class="td1" ><input class="input1 GYZCZ" name="GYZCZ2" type="text"></td>
+							<td class="td1"><input class="input1 GYZCZ" name="GYZCZ3" type="text"></td>
+							<td class="td1"><input class="input1 GYZCZ" name="GYZCZ4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark3" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">工业增加值(万元)</td>
+							<td class="td1" ><input class="input1 GYZJZ" name="GYZJZ1" type="text" onblur=""></td>
+							<td class="td1" ><input class="input1 GYZJZ" name="GYZJZ2" type="text"></td>
+							<td class="td1"><input class="input1 GYZJZ" name="GYZJZ3" type="text"></td>
+							<td class="td1"><input class="input1 GYZJZ" name="GYZJZ4" type="text"></td>
+							<td class="td1" width="200" style="word-wrap:break-word">备注：如企业未纳入年报成本费用调查统计，
+								该项无法确定可空填，
+								补充填报企业工业产值。
+								工业增加值=工业总产值*工业增加值率。</td>
+						</tr>
+						<tr>
+							<td class="td1">利润总额（万元）</td>
+							<td class="td1" ><input class="input1 LRZE" name="LRZE1" type="text"></td>
+							<td class="td1" ><input class="input1 LRZE" name="LRZE2" type="text"></td>
+							<td class="td1"><input class="input1 LRZE" name="LRZE3" type="text"></td>
+							<td class="td1"><input class="input1 LRZE" name="LRZE4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark4" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">研发经费支出(万元)</td>
+							<td class="td1" ><input class="input1 YFJFZC" name="YFJFZC1" type="text"></td>
+							<td class="td1" ><input class="input1 YFJFZC" name="YFJFZC2" type="text"></td>
+							<td class="td1"><input class="input1 YFJFZC" name="YFJFZC3" type="text"></td>
+							<td class="td1"><input class="input1 YFJFZC" name="YFJFZC4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark5" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">实缴税金(万元)</td>
+							<td class="td1" ><input class="input1 SJSJ" name="SJSJ1" type="text"></td>
+							<td class="td1" ><input class="input1 SJSJ" name="SJSJ2" type="text"></td>
+							<td class="td1"><input class="input1 SJSJ" name="SJSJ3" type="text"></td>
+							<td class="td1"><input class="input1 SJSJ" name="SJSJ4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark6" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">工业投资(万元)</td>
+							<td class="td1" ><input class="input1 GYTZ" name="GYTZ1" type="text"></td>
+							<td class="td1" ><input class="input1 GYTZ" name="GYTZ2" type="text"></td>
+							<td class="td1"><input class="input1 GYTZ" name="GYTZ3" type="text"></td>
+							<td class="td1"><input class="input1 GYTZ" name="GYTZ4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark7" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">进出口额(万元)</td>
+							<td class="td1" ><input class="input1" name="JCKE1" type="text"></td>
+							<td class="td1" ><input class="input1" name="JCKE2" type="text"></td>
+							<td class="td1"><input class="input1" name="JCKE3" type="text"></td>
+							<td class="td1"><input class="input1" name="JCKE4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark8" type="text"></td>
+						</tr>
+
+						<tr>
+							<td class="td1">主要污染物排放当量（吨）</td>
+							<td class="td1" ><input class="input1 ZYWRWPF" name="ZYWRWPF1" type="text"></td>
+							<td class="td1" ><input class="input1 ZYWRWPF" name="ZYWRWPF2" type="text"></td>
+							<td class="td1"><input class="input1 ZYWRWPF" name="ZYWRWPF3" type="text"></td>
+							<td class="td1"><input class="input1 ZYWRWPF" name="ZYWRWPF4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark9" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">能源总消费量（吨标准煤）</td>
+							<td class="td1" ><input class="input1 NYZXHL" name="NYZXHL1" type="text"></td>
+							<td class="td1" ><input class="input1 NYZXHL" name="NYZXHL2" type="text"></td>
+							<td class="td1"><input class="input1 NYZXHL" name="NYZXHL3" type="text"></td>
+							<td class="td1"><input class="input1 NYZXHL" name="NYZXHL4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark10" type="text"></td>
+						</tr>
+						<tr>
+							<td class="td1">年用水量（吨）</td>
+							<td class="td1" ><input class="input1 YSL" name="YSL1" type="text"></td>
+							<td class="td1" ><input class="input1 YSL" name="YSL2" type="text"></td>
+							<td class="td1"><input class="input1 YSL" name="YSL3" type="text"></td>
+							<td class="td1"><input class="input1 YSL" name="YSL4" type="text"></td>
+							<td class="td1" ><input class="input1" name="remark11" type="text"></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="contentTable">
+					<table>
+						<tr class="th_bt">
+							<th class="thCol" colspan="6">四、企业分类</th>
+						</tr>
+						<tr>
+							<td class="td1" width="20%">性质</td>
+							<td class="td2" colspan="2"  width="25%">
+								<label><input class="input2"  name="XZ"  id="XZ" type="checkbox"
+											  value="1" onClick="CheckThe(this,'XZ')" />内资企业</label>
+							</td>
+							<td class="td2" width="25%">
+								<label><input class="input2" name="XZ"  id="XZ" type="checkbox"
+											  value="2" onClick="CheckThe(this,'XZ')" />外资企业</label>
+							</td>
+							<td class="td2" colspan="2"  width="25%">
+								<label><input class="input2" name="XZ"  id="XZ" type="checkbox"
+											  value="3" onClick="CheckThe(this,'XZ')" />国有企业（含国有控股）</label>
+							</td>
+						</tr>
+						<tr >
+							<td class="td1" width="20%">是否中小企业</td>
+							<td class="td2" colspan="5"  width="25%">
+								<label><input class="input2" name="SFZXQY" id="SFZXQY" type="checkbox"  value="1"  onClick="CheckThe(this,'SFZXQY')">是</label>
+								<label><input class="input2" name="SFZXQY" id="SFZXQY" type="checkbox"  value="2"  onClick="CheckThe(this,'SFZXQY')">否</label>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="td1"  width="20%">高企认定</td>
+							<td class="td2" colspan="2" width="25%">
+								<label><input class="input2" name="GQRD" id="GQRD" type="checkbox" value="1"  onClick="CheckThe(this,'GQRD')"/>已认定</label>
+							</td>
+							<td class="td2" width="20%">
+								<label><input class="input2" name="GQRD" id="GQRD" type="checkbox" value="2"  onClick="CheckThe(this,'GQRD')"/>入库培育期，未认定 </label>
+							</td>
+							<td class="td2" colspan="2" width="30%">
+								<label><input class="input2" name="GQRD" id="GQRD" type="checkbox" value="3"  onClick="CheckThe(this,'GQRD')"/>其他 </label>
+
+							</td>
+						</tr>
+						<tr>
+							<td class="td1"  width="20%">上市情况</td>
+							<td class="td2" colspan="2" width="20%">
+								<label><input class="input2" name="SSQK1" id="SSQK1" type="checkbox" value="1" />上市企业</label>
+							</td>
+							<td class="td2" width="20%">
+								<label><input class="input2" name="SSQK2" id="SSQK2" type="checkbox" value="2" />挂牌“新三板企业”</label>
+							</td>
+							<td class="td2" width="15%">
+								<label><input class="input2" name="SSQK3" id="SSQK3" type="checkbox" value="3" />我市上市后备企业</label>
+							</td>
+							<td class="td2" width="25%">
+								<label><input class="input2" name="SSQK4" id="SSQK4" type="checkbox"  value="1"  onClick="CheckThe(this,'SSQK4')">已股改</label>
+								<label><input class="input2" name="SSQK4" id="SSQK4" type="checkbox"  value="2"  onClick="CheckThe(this,'SSQK4')">未股改</label>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+
+				<div class="contentTable">
+					<table id="zgsglhzc_bzjh">
+						<tr>
+							<th colspan="4" class="thCol">东莞市鼓励和支持“倍增计划”企业兼并重组资金申请表</th>
+						</tr>
+						<tr>
+							<th colspan="4" class="thCol" style="text-align:left">一、申请情况</th>
+						</tr>
+						<tr>
+							<th colspan="4" class="thCol" style="text-align:left">（一）拟申请补助专题和金额（请在前面打√，精确到小数点后2位数）</th>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<div class="subItem">
+									<input type="checkbox">
+									<div class="btBox">
+										1.贷款贴息资助，总申请补助金额为（
+										<input type="text" class="input1" name="bz_2" style="width: 100px;">
+										）万元
+									</div>
+								</div>
+								<div class="subItem">
+									<input type="checkbox">
+									<div class="btBox">
+										2.资本利得奖励，总申请补助金额为（
+										<input type="text" class="input1" name="bz_3" style="width: 100px;">
+										）万元
+									</div>
+								</div>
+								<div class="subItem">
+									以上申请补助金额合计为（ <input type="text" class="input1" name="bz_count" style="width: 100px;"> ）万元
+								</div>
+								<div class="subItem tips hidePdf">
+									（备注：如申请资本利得奖励，企业需同时填报本表格的第五项以及每个申请人需填报资本利得奖励个人申请表）
+								</div>
+							</td>
+						</tr>
+						<!-- 分割 -->
+						<tr>
+							<th colspan="4" class="thCol" style="text-align:left">二、兼并重组信息
+								<button type="button" class="tb_btn primary-btn hidePdf" onclick="addMaaArray()">新增兼并重组信息</button>
+								<button type="button" class="tb_btn danger-btn hidePdf" onclick="removeMaaArray()">删除最后一项信息</button>
+							</th>
+						</tr>
+						<tr class="each_tr">
+							<th colspan="4" class="thCol" style="text-align:left">并购企业1情况</th>
+						</tr>
+						<tr class="each_tr">
+							<td class="td1" style="width:200px">被并购企业名称</td>
+							<td class="td1"><input class="input1" name="BGQYMC" type="text"></td>
+							<td class="td1" style="width:200px">注册地</td>
+							<td class="td1"><input class="input1" name="BGQYZCD" type="text"></td>
+						</tr>
+						<tr class="each_tr">
+							<td class="td1">统一社会信用代码或工商部门登记注册号</td>
+							<td class="td1"><input class="input1" name="BGQYCODE" type="text"></td>
+							<td class="td1">注册资金</td>
+							<td class="td1"><input class="input1" name="BGQYZCZJ" type="text"></td>
+						</tr>
+						<tr class="each_tr">
+							<td class="td1">并购交易额</td>
+							<td class="td1"><input class="input1" name="BGQYBGJY" type="text"></td>
+							<td class="td1">并购时间</td>
+							<td class="td1"><div class="datePicker" id="BGQYBGSJ"></div></td>
+						</tr>
+						<tr class="each_tr">
+							<td class="td1">并购后持有企业1的股权比例</td>
+							<td colspan="3" class="td1"><input class="input1" name="BGQYBL" type="text"></td>
+						</tr>
+						<tr class="stop">
+							<th colspan="4" class="thCol hidePdf" style="text-align:left;color: #ff573d;font-size: 14px;">
+								……以上可根据申请涉及的兼并企业对象数量，以同样格式自行添加或删减填写</th>
+						</tr>
+						<tr>
+							<th colspan="4" class="thCol" style="text-align:left">三、企业推荐申报资本利得奖励股东名单
+								<button type="button" class="tb_btn primary-btn hidePdf" onclick="addJlArray()">新增名单</button>
+								<button type="button" class="tb_btn danger-btn hidePdf" onclick="removeJlArray()">删除最后一项名单</button>
+							</th>
+						</tr>
+						<!-- 分割 -->
+						<tr class="jl_top">
+							<th class="thCol">姓名</th>
+							<th class="thCol">身份证号码</th>
+							<th class="thCol">持股比例（%）</th>
+							<th class="thCol">申请奖励金额（元）</th>
+						</tr>
+						<!-- <tr class="each_tr_jl">
+                             <td class="td1" ><input class="input1 GD" name="line_name_1" type="text" id="personName_1"></td>
+                             <td class="td1" colspan="2"><input class="input1 GD" name="line_passport_1" type="text"></td>
+                             <td class="td1"><input class="input1 GD" name="line_money_1" type="text"></td>
+                         </tr>-->
+						<!--<tr class="each_tr_jl">
+                            <td class="td1"><input class="input1" name="line_2_name" type="text"></td>
+                            <td class="td1" colspan="2"><input class="input1" name="line_2_passport" type="text"></td>
+                            <td class="td1"><input class="input1" name="line_2_money" type="text"></td>
+                        </tr>-->
+						<tr class="each_tr_jl_mark">
+							<th colspan="4" class="thCol hidePdf" style="text-align:left;color: #ff573d;font-size: 14px;">
+								……以上可根据申请涉及的兼并企业对象数量，以同样格式自行添加或删减填写</th>
+						</tr>
+						<!-- 分割 -->
+						<tr>
+							<th class="thCol">四、申报资料真实性申明</th>
+							<td colspan="3" class="td1">
+								<div class="td_bk">
+									<p style="padding-bottom: 20px;">本公司承诺，我公司所递交的所有申报资料是真实有效的，如存在利用虚假资料瞒报、虚报等手段通过专项资金申请资格审查并获得专项资金资助的，由此产生的法律责任及其他所有后果，我公司将全部承担。</p>
+									<p style="text-align: right;padding-right: 10em;">法定代表人（签章）：</p>
+									<p style="text-align: right;padding-right: 10em;">企业名称（盖章）：</p>
+									<p style="text-align: right;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 日</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th class="thCol">五、镇街（园区）意见</th>
+							<td colspan="3" class="td1">
+								<div class="td_bk">
+									<textarea name="zsxsm"></textarea>
+									<p style="text-align: right;padding-right: 10em;">镇街园区（盖章）：</p>
+									<p style="text-align: right;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 日</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div style="text-align:center;vertical-align:middle" id="btnView">
+			<button type="submit" id="submit" style="background-color: #219AFF" class="submitBut button button2">提交</button>
+			<button type="submit" id="save" class="submitBut button button2">保存</button>
+		</div>
+	</form>
+	<div id="fileTable"></div>
+</div>
+</body>
+<script src="/pt/pa/html2canvas.js"></script>
+<script src="/pt/pa/jspdf.debug.js"></script>
+<script src="/pt/pa/jquery-3.4.1.min.js"></script>
+<script src="/pt/pa/jquery-validate.min.js"></script>
+<script src="/pt/pa/messages_zh.js"></script>
+<script src="/pt/pa/datePicker.min.js"></script>
+<script src="/pt/pa/baseform.js"></script>
+<script src="/pt/pa/002/pa002.js"></script>
+<script src="/pt/pa/datum.js"></script>
+
+<script>
+    /*兼并重组信息动态数据*/
+    function dynamicReorganizationInformationJson(){
+
+        /*并购企业情况数量*/
+        let riLength = document.querySelectorAll('#zgsglhzc_bzjh  .each_tr').length / 5;
+
+        var riArr = document.querySelectorAll('#zgsglhzc_bzjh  .each_tr');
+        var brrArr = [];
+
+        for(var i=0;i<riLength;i++){
+            var brr = {};
+            var ricount = 5;
+
+            for(var j=0;j<ricount;j++) {
+                var form = riArr[(i*5)+j].getElementsByTagName('input');
+                /*获取tr 中的input值*/
+                var objLength = form.length;
+                if(j==3){
+                    objLength = 2;
+                }
+                for(var k=0;k<objLength;k++) {
+                    var feled = form[k];
+                    if (brr[feled.name]) {
+                        brr[feled.name] = brr[feled.name] + ',' + feled.value;
+                    }else {
+                        if(i==0){
+                            var keyName = feled.name+"_1";
+                            brr[keyName] = feled.value;
+                        }else{
+                            brr[feled.name] = feled.value;
+                        }
+                    }
+                }
+            }
+            brrArr.push(brr);
+        }
+        return brrArr;
+    }
+
+
+    /*企业推荐申报资本利得奖励股东名单动态数据*/
+    function dynamicIncentiveShareholedersJson(){
+        var kzArr = document.querySelectorAll('#zgsglhzc_bzjh  .each_tr_jl');
+        var brr1 = [];
+        for(var i=0;i<kzArr.length;i++){
+            var brr = {};
+            var form=kzArr[i].getElementsByTagName('input');
+
+            for(var j=0;j<form.length;j++) {
+                var feled = form[j];
+                switch (feled.type) {
+                    case undefined:
+                    case 'button':
+                    case 'file':
+                    case 'reset':
+                    case 'submit':
+                    case 'hidden':
+                        break;
+                    case 'checkbox':
+                    case 'radio':
+                        if (!feled.checked) {
+                            break;
+                        }
+                    default:
+                        if (brr[feled.name]) {
+                            brr[feled.name] = brr[feled.name] + ',' + feled.value;
+                        } else {
+                            brr[feled.name] = feled.value;
+                        }
+                }
+            }
+            brr1.push(brr);
+        }
+        return brr1;
+    }
+
+</script>
+</html>

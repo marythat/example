@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newsupplytech.projectapplication.modules.mapper.IndustryTypeMapper">
+  <resultMap id="BaseResultMap" type="com.newsupplytech.projectapplication.modules.entity.IndustryType">
+    <!--@mbg.generated-->
+    <!--@Table v_industry-->
+    <result column="industryTypeId" jdbcType="INTEGER" property="industrytypeid" />
+    <result column="industryType" jdbcType="VARCHAR" property="industrytype" />
+    <result column="firstIndusType" jdbcType="INTEGER" property="firstindustype" />
+  </resultMap>
+</mapper>
